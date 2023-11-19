@@ -1,3 +1,5 @@
+// const { fraction } = require("mathjs");
+
 function agregarFila() {
     var table = document.getElementById("miTabla");
     var newRow = table.insertRow(-1);
@@ -36,10 +38,22 @@ function scannmatrix(id) {
     var table = document.getElementById(id);
     var matrix = [];
     for (var i = 0; i < table.rows.length; i++) {
-        matrix.push([]);
+        let row = [];
+
         for (var j = 0; j < table.rows[i].cells.length; j++) {
-            matrix[i].push(table.rows[i].cells[j].children[0].value);
+            let n = table.rows[i].cells[j].children[0].value
+            // the fraction may be written as a fraction or a whole number
+            // if its a whole number set the denominator to 1
+            let fraction = n.split("/");
+            if (fraction.length == 1) {
+                fraction.push(1);
+            }
+            row.push(math.fraction(fraction[0], fraction[1]));
+            // matrix[i][j] = math.fraction(fraction[j]);
+
         }
+        matrix[i] = row;
     }
+    console.log(matrix);
     return matrix;
 }

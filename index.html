@@ -17,6 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gauss</title>
     <link rel="stylesheet" href="style/estilo.css">
+    <link rel="stylesheet" href="style/Mobile.css">
     <!-- <script src="https://docs.opencv.org/4.5.0/opencv.js"></script> -->
     <!-- Librerías de js -->
     <!-- <script type="text/x-mathjax-config">
@@ -36,7 +37,7 @@
 
     <!-- Librerías de matrices -->
     <script lang="js" src="js/gaus.js"></script>
-    <script lang="js" src="js/inversa(2).js"></script>
+    <script lang="js" src="js/inversa.js"></script>
     <script lang="js" src="js/determinantes.js"></script>
 
     <!-- Funciones para html -->
@@ -53,7 +54,7 @@
 
 <body>
     
-    <div id="Calculadora" class="container" class="center">
+    <div id="Calculadora" class="container center">
         <!-- en este div se contendrá los botones y el display -->
         <div id="display">
             <h1>Gaus Jordaner</h1>
@@ -66,23 +67,25 @@
                     <img src="https://cdn-icons-png.flaticon.com/512/32/32320.png" alt="agregarFila" width="10"
                         height="10">
                 </button>
-                <table id="miTabla" border="1">
-                    <tr>
-                        <td><input class="matrix-input" /></td>
-                        <td><input class="matrix-input" /></td>
-                        <td><input class="matrix-input" /></td>
-                    </tr>
-                    <tr>
-                        <td><input class="matrix-input" /></td>
-                        <td><input class="matrix-input" /></td>
-                        <td><input class="matrix-input" /></td>
-                    </tr>
-                    <tr>
-                        <td><input class="matrix-input" /></td>
-                        <td><input class="matrix-input" /></td>
-                        <td><input class="matrix-input" /></td>
-                    </tr>
-                </table>
+                <div id="screen" class="tamaño">
+                    <table id="miTabla" border="1">
+                        <tr>
+                            <td><input class="matrix-input" /></td>
+                            <td><input class="matrix-input" /></td>
+                            <td><input class="matrix-input" /></td>
+                        </tr>
+                        <tr>
+                            <td><input class="matrix-input" /></td>
+                            <td><input class="matrix-input" /></td>
+                            <td><input class="matrix-input" /></td>
+                        </tr>
+                        <tr>
+                            <td><input class="matrix-input" /></td>
+                            <td><input class="matrix-input" /></td>
+                            <td><input class="matrix-input" /></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
             <div>
                 <h2>Matriz</h2>

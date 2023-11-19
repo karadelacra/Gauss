@@ -37,7 +37,7 @@ input[type=submit] {
     border-radius: 5px;
     background-color: #000000;
     padding: 2px;
-    margin: 2px;
+    /*  */
 }
 /* centrar elementos */
 .center {
@@ -77,6 +77,14 @@ input[type=submit] {
     border: 2px solid #979a78;
 }
 
+#screen {
+    background-color:  rgba(44, 39, 39, 0.602);
+    width: 950px;
+    height: 300px;
+    padding: 5px;
+    /* dejar estatico el contenedor */
+    position: static;
+}
 .rotate-180 {
     transform: rotate(180deg);
   }
@@ -154,13 +162,10 @@ input[type=text], input[type=password] {
     display: none;
 }
 table {
-    border-collapse: collapse;
-    width: 10%;
+    width: 300px;   
 }
 
-th, td {
-    text-align: left;
-    width: min-content;
+#miTabla {
+    /* ajustar la tabla a un máximo de el tamaño de su contenedor */
+    width: initial;
 }
-
-
