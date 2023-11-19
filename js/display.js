@@ -39,6 +39,15 @@ function scannmatrix(id) {
     var matrix = [];
     for (var i = 0; i < table.rows.length; i++) {
         let row = [];
+        // si la matriz tiene letras o espacios vacíos regresa un al usuario
+        // que no se puede hacer la operación
+        for (var j = 0; j < table.rows[i].cells.length; j++) {
+            let n = table.rows[i].cells[j].children[0].value
+            if (n == "" || isNaN(n)) {
+                alert("La matriz no puede tener letras o espacios vacíos");
+                return;
+            }
+        }
 
         for (var j = 0; j < table.rows[i].cells.length; j++) {
             let n = table.rows[i].cells[j].children[0].value

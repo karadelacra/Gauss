@@ -61,7 +61,7 @@
             <div>
 
                 </button>
-                <div id="screen" class="tamaño">
+                <div id="screen">
                     <table id="TableOriginal">
                         <!-- se crea una tabla de dos por dos -->
                         <tr>
@@ -70,23 +70,23 @@
                             </td>
                             <td>
                                 <button onclick="agregarFila()" class="modificar">
-                                    <img src="https://cdn-icons-png.flaticon.com/128/32/32195.png" alt="agregarFila"
+                                    <img src="https://cdn-icons-png.flaticon.com/128/32/32195.png" alt="agregar Fila"
                                         width="10" height="10">
                                 </button>
                                 <button onclick="borrarFila()" class="rotate-180 modificar">
-                                    <img src="https://cdn-icons-png.flaticon.com/128/32/32195.png" alt="agregarFila"
+                                    <img src="https://cdn-icons-png.flaticon.com/128/32/32195.png" alt="borrar Fila"
                                         width="10" height="10">
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <button onclick="agregarColumna()"  class="rotate-270 modificar">
-                                    <img src="https://cdn-icons-png.flaticon.com/128/32/32195.png" alt="agregarFila"
+                                <button onclick="agregarColumna()" class="rotate-270 modificar">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/32/32195.png" alt="agregar columna"
                                         width="10" height="10">
                                 </button>
                                 <br>
-                                <button onclick="borrarColumna()"class="rotate-90 modificar">
-                                    <img src="https://cdn-icons-png.flaticon.com/128/32/32195.png" alt="agregarFila"
+                                <button onclick="borrarColumna()" class="rotate-90 modificar">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/32/32195.png" alt="borrar Columna"
                                         width="10" height="10">
                                 </button>
                             </td>
@@ -114,26 +114,22 @@
                 </div>
             </div>
             <div>
-                <h2>Matriz</h2>
-
-                <div>
-                    columnas
-                    <br>
-
-                </div>
-                <br>
-                <!-- <textarea name="gauss" id="gauss" cols="30" rows="10" placeholder="Matríz"></textarea> -->
-
-                <button id="accion" onclick="calculartodo()">Resolver</button>
+                <button id="accion" onclick="calculartodo()">
+                    <img src="img/math.svg" alt="calcular" width="40" height="40">
+                </button>
                 <form onsubmit="mostrarImagenYDatos(); return false;" method="post" enctype="multipart/form-data">
-                    <br>
-                    <button type="submit" class="input-with-svg" value="Subir">
-                        <img src="img/5006210-200.png" alt="Descargar" width="40" height="40">
-                    </button>
-                    <!-- <input type="submit" class="input-with-svg" value=" "> -->
-                    <br>
-                    <!-- input tipo file sin texto predeterminado -->
-                    <input type="file" id="Carch" name="archivo">
+                    <table>
+                        <tr>
+                            <td>
+                                <button id="submit" type="submit" value="Subir">
+                                    <img src="img/5006210-200.png" alt="Descargar" width="30" height="30">
+                                </button>
+                            </td>                    
+                            <td>
+                                <input type="file" id="Carch" name="archivo">
+                            </td>
+                        </tr>
+                    </table>
                 </form>
             </div>
 
