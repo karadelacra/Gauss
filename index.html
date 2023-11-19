@@ -1,0 +1,169 @@
+<!-- // Autores: Padilla Escobar Karel Roman, et al.
+// Fecha: 11 Noviembre 2023
+// Versión: 1.0
+// Descripción: Programa que muestra una página web -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gauss</title>
+    <link rel="stylesheet" href="style/estilo.css">
+    <!-- <script src="https://docs.opencv.org/4.5.0/opencv.js"></script> -->
+    <!-- Librerías de js -->
+    <!-- <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          jax: ["input/TeX", "output/HTML-CSS"],
+          extensions: ["tex2jax.js"],
+          "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },
+          tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },
+          TeX: { noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },
+          messageStyle: "none"
+        });
+    </script>
+    script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script> -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjs@10.1.0/lib/browser/math.js"></script>
+
+    <!-- Librerías de matrices -->
+    <script lang="js" src="js/gaus.js"></script>
+    <script lang="js" src="js/inversa(2).js"></script>
+    <script lang="js" src="js/determinantes.js"></script>
+
+    <!-- Funciones para html -->
+    <script lang="js" src="js/archivo.js"></script>
+    <!-- <script lang="js" src="js/calculadora.js"></script> -->
+    <script lang="js" src="js/display.js"></script>
+    <script lang="js" src="js/main.js"></script>
+    <!-- se ejecuta una función por default -->
+    <script>
+        window.onload = shiftYenter();
+    </script>
+    
+</head>
+
+<body>
+    
+    <div id="Calculadora" class="container" class="center">
+        <!-- en este div se contendrá los botones y el display -->
+        <div id="display">
+            <h1>Gaus Jordaner</h1>
+            <div>
+                <button onclick="agregarFila()">
+                    <img src="https://cdn-icons-png.flaticon.com/512/32/32339.png" alt="agregarFila" width="10"
+                        height="10">
+                </button>
+                <button onclick="borrarFila()">
+                    <img src="https://cdn-icons-png.flaticon.com/512/32/32320.png" alt="agregarFila" width="10"
+                        height="10">
+                </button>
+                <table id="miTabla" border="1">
+                    <tr>
+                        <td><input class="matrix-input" /></td>
+                        <td><input class="matrix-input" /></td>
+                        <td><input class="matrix-input" /></td>
+                    </tr>
+                    <tr>
+                        <td><input class="matrix-input" /></td>
+                        <td><input class="matrix-input" /></td>
+                        <td><input class="matrix-input" /></td>
+                    </tr>
+                    <tr>
+                        <td><input class="matrix-input" /></td>
+                        <td><input class="matrix-input" /></td>
+                        <td><input class="matrix-input" /></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <h2>Matriz</h2>
+
+                <div>
+                    columnas
+                    <br>
+                    <button onclick="agregarColumna()">
+                        <img src="https://cdn-icons-png.flaticon.com/512/32/32339.png" alt="agregarFila" width="10"
+                            height="10">
+                    </button>
+                    <button onclick="borrarColumna()">
+                        <img src="https://cdn-icons-png.flaticon.com/512/32/32320.png" alt="agregarFila" width="10"
+                            height="10">
+                    </button>
+                </div>
+                <br>
+                <!-- <textarea name="gauss" id="gauss" cols="30" rows="10" placeholder="Matríz"></textarea> -->
+
+                <button id="accion" onclick="calculartodo()">Resolver</button>
+                <form onsubmit="mostrarImagenYDatos(); return false;" method="post" enctype="multipart/form-data">
+                    <br>
+                    <button type="submit" class="input-with-svg" value="Subir">
+                        <img src="img/5006210-200.png" alt="Descargar" width="40" height="40">
+                    </button>
+                    <!-- <input type="submit" class="input-with-svg" value=" "> -->
+                    <br>
+                    <!-- input tipo file sin texto predeterminado -->
+                    <input type="file" id="Carch" name="archivo">
+                </form>
+            </div>
+
+            <!-- Incluir botones.html -->
+            <!-- <div id="Botones" class="gristrans">
+            <div>
+                <button onclick="borrar()" class="btn delete"></button>
+                <button onclick="menos()" class="btn">-</button>
+                <button onclick="enter()" class="btn imagenenter"></button>
+            </div>
+            <br>
+            <div id="primera fila">
+                <button onclick="uno()" class="btn">1</button>
+                <button onclick="dos()" class="btn">2</button>
+                <button onclick="tres()" class="btn">3</button>
+            </div>
+            <br>
+            <div id="segunda fila">
+                <button onclick="cuatro()" class="btn">4</button>
+                <button onclick="cinco()" class="btn">5</button>
+                <button onclick="seis()" class="btn">6</button>
+            </div>
+            <br>
+            <div id="tercera fila">
+                <button onclick="siete()" class="btn">7</button>
+                <button onclick="ocho()" class="btn">8</button>
+                <button onclick="nueve()" class="btn">9</button>
+            </div>
+            <br>
+            <div id="cuarta fila">
+                <button onclick="espacio()" class="btn">space</button>
+                <button onclick="cero()" class="btn">0</button>
+            </div>
+        </div> -->
+
+            <div id="resultados" class="container hidden">
+                <div class="rotate-180">
+                    <h2>Resultados de la matriz</h2>
+                    <textarea id="rawmatriz" class="hidden" placeholder="Matríz"></textarea>
+                    <div id="resultado" class="matriz hidden matriz">
+                    </div>
+                    <br>
+                    <div id="determinantes" class="matriz hidden   matriz">
+
+                    </div>
+                    <br>
+                    <div id="inv" class="matriz hidden matriz">
+
+                    </div>
+                </div>
+
+                <button onclick="save()" class="btndescargar">
+                    <img src="https://static.thenounproject.com/png/5006210-200.png" alt="Descargar" width="40"
+                        height="40">
+                </button>
+            </div>
+        </div>
+
+</body>
+
+</html>

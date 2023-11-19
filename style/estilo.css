@@ -1,0 +1,166 @@
+/* esta página se usa para darle estilo a la página de inicio */
+
+body {
+    display: flex;
+    color: rgb(0, 0, 0);
+    background-image: url('https://images.pexels.com/photos/12920871/pexels-photo-12920871.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    /* ajustar la imagen a la pestaña */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    margin: 0;
+  }
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 3px solid #848484;
+    border-radius: 4px;
+}
+/* submit button is under the text area */
+input[type=submit] {
+    width: 100%;
+    background-color: rgba(255, 68, 68, 0.697);
+    border: 3px solid #6c6c6c;
+    color: rgb(255, 255, 255);
+    padding: 14px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* mantener el cuadro de texto dentro del div */
+.container {
+    border-radius: 5px;
+    background-color: #000000;
+    padding: 2px;
+    margin: 2px;
+}
+/* centrar elementos */
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+/* fondo blanco de un div */
+.gristrans {
+    background-color:  rgba(81, 81, 81, 0.964);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 200px;
+}
+
+#contenedor {
+    background-color:  rgba(138, 138, 138, 0.521);
+    padding: 20px;
+    margin: 10px;
+    border: 2px solid #676767;
+    justify-content: center;
+    text-align: center;
+}
+#resultados {
+    background-color:  rgba(81, 62, 62, 0.602);
+    padding: 20px;
+    margin: 10px;
+    border: 2px solid rgb(111, 109, 106);
+    transform: rotate(180deg);
+}
+#Calculadora {
+    background-color:  rgba(225, 225, 225, 0.499);
+    color: rgb(45, 24, 24);
+    padding: 20px;
+    margin: 10px;
+    border: 2px solid #979a78;
+}
+
+.rotate-180 {
+    transform: rotate(180deg);
+  }
+  .input-with-svg {
+    /* background-image: url('https://uxwing.com/wp-content/themes/uxwing/download/clothes-and-accessories/sunglasses-icon.png'); */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 20px 20px;
+    padding: 14px 14px; /* Ajusta el espaciado según sea necesario */
+  }
+  .btndescargar {
+    /* background-image: url('https://static.thenounproject.com/png/5006210-200.png'); */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 40px 40px; 
+    padding: 15px 15px; /* Ajusta elespaciado según sea necesario */
+  }
+  .imagenenter{
+    background-image: url('https://static.thenounproject.com/png/2718465-200.png');
+    background-repeat: no-repeat;
+    background-color: rgba(100, 102, 204, 0.585);
+    background-position: center center;
+    background-size: 40px 40px;
+    padding: 23px 20px; /* Ajusta el espaciado según sea necesario */
+  }
+button {
+    /* bordes redondos */
+    border-radius: 8px;
+    border: 2px solid #000000;
+    background-color: rgba(57, 0, 0, 0.629);
+    color: rgb(255, 255, 255);
+    padding: 14px 20px;
+    cursor: pointer;
+}
+button:hover {
+    opacity: 0.8;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+/* fondo de botón azúl transparente */
+.btn {
+    background-color: rgba(100, 102, 204, 0.585);
+    color: rgb(0, 0, 0);
+}
+.delete {
+    background-image: url('https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/backspace-erase-icon.png');
+    background-repeat: no-repeat;
+    background-color: rgba(100, 102, 204, 0.585);
+    background-position: center center;
+    background-size: 20px 20px;
+    padding: 23px 20px; /* Ajusta el espaciado según sea necesario */
+}
+/* fondo blanco a un text area */
+.textarea {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    margin: 10px;
+}
+.matriz {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0) ;
+    padding: 20px;
+    margin: 5px;
+    border: 2px solid #000000;
+
+}
+.hidden {
+    display: none;
+}
+table {
+    border-collapse: collapse;
+    width: 10%;
+}
+
+th, td {
+    text-align: left;
+    width: min-content;
+}
+
+
