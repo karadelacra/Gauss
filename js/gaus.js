@@ -2,8 +2,8 @@
 // Para realizar eliminación gaussiana
 
 
-// function scanmatrix(string)
-// {
+function scanmatrix(string)
+{
 //     let matrix = [[]];
 //     let rows = string.split("\n");
 //     for (let i = 0; i < rows.length; i++)
@@ -30,7 +30,7 @@
 //         matrix[i] = row;
 //     }
 //     return matrix;
-// }
+}
 
 function toEc(matrix)
 {

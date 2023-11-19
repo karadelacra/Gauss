@@ -1,3 +1,5 @@
+// Max Miguel 
+
 const GaussModule = (function () {
     function isSquareMatrix(matrix) {
         const rows = matrix.length;
@@ -80,10 +82,11 @@ const GaussModule = (function () {
 })();
 
 function gauss_Inversa() {
-    const textbox = document.getElementById("gauss");
+    // const textbox = document.getElementById("gauss");
+
     const inversaElement = document.getElementById("inv");
 
-    const matrix = scanmatrix(textbox.value);
+    const matrix = scannmatrix('miTabla');
 
     if (!GaussModule.isSquareMatrix(matrix)) {
         const errorMessage = "Solo se puede calcular la inversa de una matriz cuadrada.";

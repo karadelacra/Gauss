@@ -20,7 +20,7 @@ function calculartodo() {
     gauss(matrix);
     gauss_det(matrix);
     // gauss_Inversa(matrix);
-    inversa();
+    gauss_Inversa();
 }
 
 function shiftYenter(){
