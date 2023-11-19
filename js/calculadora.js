@@ -1,5 +1,6 @@
 // los botones de la calculadora escriben en el display sus valores respectivos
 // Función para escribir en el contenedor
+//hola
 function escribirEnContenedor(caracter) {
     let contenedor = document.getElementById("gauss");
     contenedor.value += caracter;
