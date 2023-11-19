@@ -32,7 +32,7 @@
     </script>
     script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script> -->
-    
+
     <script src="https://cdn.jsdelivr.net/npm/mathjs@10.1.0/lib/browser/math.js"></script>
 
     <!-- Librerías de matrices -->
@@ -49,40 +49,66 @@
     <script>
         window.onload = shiftYenter();
     </script>
-    
+
 </head>
 
 <body>
-    
+
     <div id="Calculadora" class="container center">
         <!-- en este div se contendrá los botones y el display -->
         <div id="display">
             <h1>Gaus Jordaner</h1>
             <div>
-                <button onclick="agregarFila()">
-                    <img src="https://cdn-icons-png.flaticon.com/512/32/32339.png" alt="agregarFila" width="10"
-                        height="10">
-                </button>
-                <button onclick="borrarFila()">
-                    <img src="https://cdn-icons-png.flaticon.com/512/32/32320.png" alt="agregarFila" width="10"
-                        height="10">
+
                 </button>
                 <div id="screen" class="tamaño">
-                    <table id="miTabla" border="1">
+                    <table id="TableOriginal">
+                        <!-- se crea una tabla de dos por dos -->
                         <tr>
-                            <td><input class="matrix-input" /></td>
-                            <td><input class="matrix-input" /></td>
-                            <td><input class="matrix-input" /></td>
+                            <td>
+
+                            </td>
+                            <td>
+                                <button onclick="agregarFila()" class="modificar">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/32/32195.png" alt="agregarFila"
+                                        width="10" height="10">
+                                </button>
+                                <button onclick="borrarFila()" class="rotate-180 modificar">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/32/32195.png" alt="agregarFila"
+                                        width="10" height="10">
+                            </td>
                         </tr>
                         <tr>
-                            <td><input class="matrix-input" /></td>
-                            <td><input class="matrix-input" /></td>
-                            <td><input class="matrix-input" /></td>
-                        </tr>
-                        <tr>
-                            <td><input class="matrix-input" /></td>
-                            <td><input class="matrix-input" /></td>
-                            <td><input class="matrix-input" /></td>
+                            <td>
+                                <button onclick="agregarColumna()"  class="rotate-270 modificar">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/32/32195.png" alt="agregarFila"
+                                        width="10" height="10">
+                                </button>
+                                <br>
+                                <button onclick="borrarColumna()"class="rotate-90 modificar">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/32/32195.png" alt="agregarFila"
+                                        width="10" height="10">
+                                </button>
+                            </td>
+                            <td>
+                                <table id="miTabla" border="1">
+                                    <tr>
+                                        <td><input class="matrix-input" /></td>
+                                        <td><input class="matrix-input" /></td>
+                                        <td><input class="matrix-input" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input class="matrix-input" /></td>
+                                        <td><input class="matrix-input" /></td>
+                                        <td><input class="matrix-input" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input class="matrix-input" /></td>
+                                        <td><input class="matrix-input" /></td>
+                                        <td><input class="matrix-input" /></td>
+                                    </tr>
+                                </table>
+                            </td>
                         </tr>
                     </table>
                 </div>
@@ -93,14 +119,7 @@
                 <div>
                     columnas
                     <br>
-                    <button onclick="agregarColumna()">
-                        <img src="https://cdn-icons-png.flaticon.com/512/32/32339.png" alt="agregarFila" width="10"
-                            height="10">
-                    </button>
-                    <button onclick="borrarColumna()">
-                        <img src="https://cdn-icons-png.flaticon.com/512/32/32320.png" alt="agregarFila" width="10"
-                            height="10">
-                    </button>
+
                 </div>
                 <br>
                 <!-- <textarea name="gauss" id="gauss" cols="30" rows="10" placeholder="Matríz"></textarea> -->

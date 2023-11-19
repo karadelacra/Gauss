@@ -12,7 +12,8 @@ body {
     text-align: center;
     height: 100vh;
     margin: 0;
-  }
+}
+
 textarea {
     width: 100%;
     height: 150px;
@@ -21,6 +22,7 @@ textarea {
     border: 3px solid #848484;
     border-radius: 4px;
 }
+
 /* submit button is under the text area */
 input[type=submit] {
     width: 100%;
@@ -32,86 +34,6 @@ input[type=submit] {
     cursor: pointer;
 }
 
-/* mantener el cuadro de texto dentro del div */
-.container {
-    border-radius: 5px;
-    background-color: #000000;
-    padding: 2px;
-    /*  */
-}
-/* centrar elementos */
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
-/* fondo blanco de un div */
-.gristrans {
-    background-color:  rgba(81, 81, 81, 0.964);
-    padding: 20px;
-    margin: 10px;
-    border-radius: 200px;
-}
-
-#contenedor {
-    background-color:  rgba(138, 138, 138, 0.521);
-    padding: 20px;
-    margin: 10px;
-    border: 2px solid #676767;
-    justify-content: center;
-    text-align: center;
-}
-#resultados {
-    background-color:  rgba(81, 62, 62, 0.602);
-    padding: 20px;
-    margin: 10px;
-    border: 2px solid rgb(111, 109, 106);
-    transform: rotate(180deg);
-}
-#Calculadora {
-    background-color:  rgba(225, 225, 225, 0.499);
-    color: rgb(45, 24, 24);
-    padding: 20px;
-    margin: 10px;
-    border: 2px solid #979a78;
-}
-
-/* #screen {
-    background-color:  rgba(44, 39, 39, 0.602);
-    width: 100%;
-    height: 300px;
-    padding: 5px;
-    dejar estatico el contenedor 
-    position: relative;
-    justify-content: center;
-    text-align: center;
-} */
-.rotate-180 {
-    transform: rotate(180deg);
-  }
-  /* .input-with-svg {
-    background-image: url('https://uxwing.com/wp-content/themes/uxwing/download/clothes-and-accessories/sunglasses-icon.png'); 
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 20px 20px;
-    padding: 14px 14px;  Ajusta el espaciado según sea necesario 
-  } */
-  .btndescargar {
-    /* background-image: url('https://static.thenounproject.com/png/5006210-200.png'); */
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 40px 40px; 
-    padding: 15px 15px; /* Ajusta elespaciado según sea necesario */
-  }
-  .imagenenter{
-    background-image: url('https://static.thenounproject.com/png/2718465-200.png');
-    background-repeat: no-repeat;
-    background-color: rgba(100, 102, 204, 0.585);
-    background-position: center center;
-    background-size: 40px 40px;
-    padding: 23px 20px; /* Ajusta el espaciado según sea necesario */
-  }
 button {
     /* bordes redondos */
     border-radius: 8px;
@@ -121,53 +43,161 @@ button {
     padding: 14px 20px;
     cursor: pointer;
 }
+
 button:hover {
     opacity: 0.8;
 }
 
-/* input[type=text], input[type=password] {
+
+
+#contenedor {
+    background-color: rgba(138, 138, 138, 0.521);
+    padding: 20px;
+    margin: auto;
+    border: 2px solid #676767;
+    justify-content: center;
+    text-align: center;
+}
+
+#resultados {
+    background-color: rgba(81, 62, 62, 0.602);
+    padding: 20px;
+    margin: 10px;
+    border: 2px solid rgb(111, 109, 106);
+    transform: rotate(180deg);
+}
+
+#Calculadora {
+    background-color: rgba(225, 225, 225, 0.499);
+    color: rgb(45, 24, 24);
+    padding: 20px;
+    margin: 10px;
+    border: 2px solid #979a78;
+}
+
+#screen {
+    background-color: rgba(44, 39, 39, 0.602);
     width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
-} */
-/* fondo de botón azúl transparente */
+    height: auto;
+    padding: 5px;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+}
+
+#TableOriginal {
+    width: auto;
+    position: center;
+    border-spacing: 5px;
+    margin: auto;
+}
+
+.modificar{
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgb(0, 0, 0);
+    width: 40px;
+    height: 30px;
+    margin-top: 14px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    padding: 1px;
+}
+
+/* mantener el cuadro de texto dentro del div */
+.container {
+    border-radius: 5px;
+    background-color: #000000;
+    padding: 2px;
+    /*  */
+}
+
+/* centrar elementos */
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+/* fondo blanco de un div */
+.gristrans {
+    background-color: rgba(81, 81, 81, 0.964);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 200px;
+}
+
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
+.rotate-90 {
+    transform: rotate(90deg);
+}
+.rotate-270 {
+    transform: rotate(270deg);
+}
+
+.btndescargar {
+    /* background-image: url('https://static.thenounproject.com/png/5006210-200.png'); */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 40px 40px;
+    padding: 15px 15px;
+    /* Ajusta elespaciado según sea necesario */
+}
+
+.imagenenter {
+    background-image: url('https://static.thenounproject.com/png/2718465-200.png');
+    background-repeat: no-repeat;
+    background-color: rgba(100, 102, 204, 0.585);
+    background-position: center center;
+    background-size: 40px 40px;
+    padding: 23px 20px;
+    /* Ajusta el espaciado según sea necesario */
+}
+
 .btn {
     background-color: rgba(100, 102, 204, 0.585);
     color: rgb(0, 0, 0);
 }
+
 .delete {
     background-image: url('https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/backspace-erase-icon.png');
     background-repeat: no-repeat;
     background-color: rgba(100, 102, 204, 0.585);
     background-position: center center;
     background-size: 20px 20px;
-    padding: 23px 20px; /* Ajusta el espaciado según sea necesario */
+    padding: 23px 20px;
+    /* Ajusta el espaciado según sea necesario */
 }
+
 /* fondo blanco a un text area */
 .textarea {
     background-color: rgb(255, 255, 255);
     padding: 20px;
     margin: 10px;
 }
+
 .matriz {
     background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0) ;
+    color: rgb(0, 0, 0);
     padding: 20px;
     margin: 5px;
     border: 2px solid #000000;
 
 }
+
 .matrix-input {
     width: 20px;
 }
+
 .hidden {
     display: none;
 }
+
 table {
-    width: auto;  
+    width: auto;
 }
 
 .miTabla {
