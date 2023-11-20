@@ -3,12 +3,6 @@
 // Versión: 1.0
 // Descripción: Programa que muestra una página web -->
 
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -135,7 +129,7 @@
             </div>
             <div id="resultados" class="container hidden">
                 <div id="resetear">
-                    <button onclick="save()" id="Descargar">
+                    <button onclick="save()" id="Descargar" class="rotate-180">
                         <img src="https://static.thenounproject.com/png/5006210-200.png" alt="Descargar" width="40"
                             height="40">
                     </button>
@@ -151,11 +145,13 @@
                     </div>
                     <br>
                     <h2>Determinantes</h2>
+                    <textarea id="rawmatriz2" class="hidden" placeholder="Matríz"></textarea>
                     <div id="determinantes" class="matriz hidden   matriz">
 
                     </div>
                     <br>
                     <h2>Inversa</h2>
+                    <textarea id="rawmatriz3" class="hidden" placeholder="Matríz"></textarea>
                     <div id="inv" class="matriz hidden matriz">
 
                     </div>

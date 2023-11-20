@@ -2,18 +2,24 @@
 
 function save() {
   const content = document.getElementById('rawmatriz').value;
-  if (content === '') {
-    return;
-  }
+  const content2 = document.getElementById('rawmatriz2').value;
+  const content3 = document.getElementById('rawmatriz3').value;
+
+  console.log(content);
+  console.log(content2);
+  console.log(content3);
 
   const matrix = scanmatrix(content)
-  let n = matrix.length;
-  let m = matrix[0].length;
 
-  const blob = new Blob([content], { type: 'text/plain' });
+  const n = matrix.length;
+  const m = matrix[0].length;
+
   const link = document.createElement('a');
+  // juntar los datos de los resultados del programa separados con dos saltos de línea
+  const data = '✓ gausJordan \n' + content + '\n\n ✓ determinante \n' + content2 + '\n\n\n ✓ inversa \n' + content3;
+  const blob = new Blob([data], { type: 'text/plain' });
   link.href = URL.createObjectURL(blob);
-  link.download = `gauss${n}x${m}.txt`;
+  link.download = `Matriz ${n}x${m}.txt`;
 
   // Simular un clic en el enlace para iniciar la descarga
   link.click();
@@ -65,7 +71,7 @@ function mostrarImagenYDatos() {
       reader.readAsText(archivo);
       return;
     }
-    else{
+    else {
       // limpiar el textbox
       textbox.value = '';
       reader.onload = function (e) {

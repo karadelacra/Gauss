@@ -86,6 +86,7 @@ function gauss_Inversa() {
     // const textbox = document.getElementById("gauss");
 
     const inversaElement = document.getElementById("inv");
+    const textarea = document.getElementById("rawmatriz3");
 
     const matrix = scannmatrix('miTabla');
 
@@ -105,10 +106,13 @@ function gauss_Inversa() {
         return;
     }
 
+    textarea.value = toString(invertedMatrix);
+
     inversaElement.innerHTML = matrixToHTMLTable(invertedMatrix);
 }
 
 function matrixToHTMLTable(matrix) {
+    impOculta(matrix);
     const table = document.createElement("table");
     matrix.forEach(row => {
         const tr = document.createElement("tr");
@@ -126,3 +130,4 @@ function scanmatrix(matrixStr) {
     const rows = matrixStr.trim().split('\n');
     return rows.map(row => row.split(/\s+/).map(val => math.fraction(Number(val))));
 }
+

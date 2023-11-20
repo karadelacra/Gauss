@@ -147,3 +147,14 @@ function gauss_jordaner(matrix)
     }
     return matrix;
 }
+
+function gauss(matrix) {
+    const textarea = document.getElementById("rawmatriz");
+
+    let resultado = gauss_jordaner(matrix);
+    textarea.value = toString(resultado);
+
+    let tabla = document.getElementById("resultado");
+
+    tabla.innerHTML = matrixToHTMLTable(resultado);
+}
