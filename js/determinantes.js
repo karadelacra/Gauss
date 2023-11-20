@@ -74,13 +74,4 @@ function gauss_det() {
     const isInteger = math.isInteger(det_det);
     const detString = isInteger ? det_det.toString() : math.format(det_det, { fraction: 'ratio' });
     resultado_det.innerText = detString;
-    return detString;
-}
-
-// imprimir en textarea oculto para que se pueda copiar
-function impOculta(matrix){
-    const textarea = document.getElementById("rawmatriz2");
-
-    let resultado = gauss_det(matrix);
-    textarea.value = resultado;
 }

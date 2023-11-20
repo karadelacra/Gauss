@@ -92,7 +92,6 @@ function mostrarImagenYDatos() {
         textbox.value = e.target.result;
       };
 
-      
       reader.readAsText(archivo);
       return;
     } else {
