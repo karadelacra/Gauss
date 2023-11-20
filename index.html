@@ -3,12 +3,6 @@
 // Versión: 1.0
 // Descripción: Programa que muestra una página web -->
 
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -70,11 +64,11 @@
 
                             </td>
                             <td>
-                                <button onclick="agregarFila()" class="modificar">
+                                <button onclick="borrarFila()" class="modificar">
                                     <img src="https://cdn-icons-png.flaticon.com/128/32/32195.png" alt="agregar Fila"
                                         width="10" height="10">
                                 </button>
-                                <button onclick="borrarFila()" class="rotate-180 modificar">
+                                <button onclick="agregarFila()" class="rotate-180 modificar">
                                     <img src="https://cdn-icons-png.flaticon.com/128/32/32195.png" alt="borrar Fila"
                                         width="10" height="10">
                             </td>
@@ -121,13 +115,9 @@
                 <form onsubmit="mostrarImagenYDatos(); return false;" method="post" enctype="multipart/form-data">
                     <table>
                         <tr>
+                            
                             <td>
-                                <button id="submit" type="submit" value="Subir">
-                                    <img src="img/5006210-200.png" alt="Descargar" width="30" height="30">
-                                </button>
-                            </td>
-                            <td>
-                                <input type="file" id="Carch" name="archivo">
+                                <input type="file" id="Carch" name="archivo" onchange="readtextfile()">
                             </td>
                         </tr>
                     </table>
@@ -156,7 +146,7 @@
                     </div>
                     <br>
                     <h2>Inversa</h2>
-                    <div id="inv" class="matriz hidden matriz">
+                    <div id="inv" class="matriz hidden tabla-inversa">
 
                     </div>
                 </div>

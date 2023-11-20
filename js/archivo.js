@@ -25,24 +25,54 @@ function save() {
   }, 100);
 }
 
-
 function readtextfile() {
-  const textbox = document.getElementById("gauss");
   const fileInput = document.getElementById("Carch").files[0];
   const reader = new FileReader();
 
   if (fileInput) {
     reader.onload = function (e) {
-      textbox.value = e.target.result;
+      const content = e.target.result;
+      insertTextIntoTable(content);
     };
 
     reader.readAsText(fileInput);
   } else {
     console.error("No se ha seleccionado ningún archivo.");
   }
-
 }
 
+function insertTextIntoTable(content) {
+  const matrix = parseMatrix(content);
+  if (!matrix) {
+    console.error("El formato del archivo no es válido.");
+    return;
+  }
+
+  const table = document.getElementById("miTabla");
+  clearTable(table);
+
+  matrix.forEach((row) => {
+    const newRow = table.insertRow();
+    row.forEach((cell) => {
+      const newCell = newRow.insertCell();
+      const input = document.createElement("input");
+      input.className = "matrix-input";
+      input.value = cell;
+      newCell.appendChild(input);
+    });
+  });
+}
+
+function parseMatrix(content) {
+  const rows = content.trim().split("\n");
+  return rows.map((row) => row.trim().split(/\s+/).map(Number));
+}
+
+function clearTable(table) {
+  while (table.rows.length > 0) {
+    table.deleteRow(0);
+  }
+}
 
 function mostrarImagenYDatos() {
   document.getElementById('imagenMostrada').src = '';
@@ -64,27 +94,22 @@ function mostrarImagenYDatos() {
 
       reader.readAsText(archivo);
       return;
-    }
-    else{
-      // limpiar el textbox
+    } else {
       textbox.value = '';
       reader.onload = function (e) {
         imagenMostrada.src = e.target.result;
 
-        // Muestra datos de la imagen
         datosImagen.innerHTML = `
-        <p>Nombre: ${archivo.name}</p>
-        <p>Tipo: ${archivo.type}</p>
-        <p>Tamaño: ${archivo.size} bytes</p>
-      `;
+          <p>Nombre: ${archivo.name}</p>
+          <p>Tipo: ${archivo.type}</p>
+          <p>Tamaño: ${archivo.size} bytes</p>
+        `;
       };
     }
     reader.readAsDataURL(archivo);
 
-    // Muestra la sección de imagen y datos
     imagenContainer.style.display = 'block';
   } else {
-    // Oculta la sección de imagen y datos si no hay archivo seleccionado
     imagenContainer.style.display = 'none';
   }
 }
