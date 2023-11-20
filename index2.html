@@ -1,0 +1,163 @@
+<!-- // Autores: Padilla Escobar Karel Roman, et al.
+// Fecha: 11 Noviembre 2023
+// Versión: 1.0
+// Descripción: Programa que muestra una página web -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gauss</title>
+    <link rel="stylesheet" href="style/estilo.css">
+    <link rel="stylesheet" href="style/Mobile.css">
+    <!-- <script src="https://docs.opencv.org/4.5.0/opencv.js"></script> -->
+    <!-- Librerías de js -->
+    <!-- <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          jax: ["input/TeX", "output/HTML-CSS"],
+          extensions: ["tex2jax.js"],
+          "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },
+          tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },
+          TeX: { noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },
+          messageStyle: "none"
+        });
+    </script>
+    script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/mathjs@10.1.0/lib/browser/math.js"></script>
+
+    <!-- Librerías de matrices -->
+    <script lang="js" src="js/gaus.js"></script>
+    <script lang="js" src="js/inversa.js"></script>
+    <script lang="js" src="js/determinantes.js"></script>
+    <script lang="js" src="js/reestablecer.js"></script>
+
+    <!-- Funciones para html -->
+    <script lang="js" src="js/archivo.js"></script>
+    <!-- <script lang="js" src="js/calculadora.js"></script> -->
+    <script lang="js" src="js/display.js"></script>
+    <script lang="js" src="js/main.js"></script>
+    <!-- se ejecuta una función por default -->
+    <script>
+        window.onload = enter();
+    </script>
+
+</head>
+
+<body>
+
+    <div id="Calculadora" class="container center">
+        <!-- en este div se contendrá los botones y el display -->
+        <div id="display">
+            <h1>Gaus Jordaner</h1>
+            <div>
+
+                </button>
+                <div id="screen">
+                    <table id="TableOriginal">
+                        <!-- se crea una tabla de dos por dos -->
+                        <tr>
+                            <td>
+
+                            </td>
+                            <td>
+                                <button onclick="borrarFila()" class="modificar">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/32/32195.png" alt="agregar Fila"
+                                        width="10" height="10">
+                                </button>
+                                <button onclick="agregarFila()" class="rotate-180 modificar">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/32/32195.png" alt="borrar Fila"
+                                        width="10" height="10">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button onclick="agregarColumna()" class="rotate-270 modificar">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/32/32195.png" alt="agregar columna"
+                                        width="10" height="10">
+                                </button>
+                                <br>
+                                <button onclick="borrarColumna()" class="rotate-90 modificar">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/32/32195.png" alt="borrar Columna"
+                                        width="10" height="10">
+                                </button>
+                            </td>
+                            <td>
+                                <table id="miTabla" border="1">
+                                    <tr>
+                                        <td><input class="matrix-input" /></td>
+                                        <td><input class="matrix-input" /></td>
+                                        <td><input class="matrix-input" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input class="matrix-input" /></td>
+                                        <td><input class="matrix-input" /></td>
+                                        <td><input class="matrix-input" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input class="matrix-input" /></td>
+                                        <td><input class="matrix-input" /></td>
+                                        <td><input class="matrix-input" /></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <button id="accion" onclick="calculartodo()">
+                    <img src="img/math.svg" alt="calcular" width="40" height="40">
+                </button>
+                <form onsubmit="mostrarImagenYDatos(); return false;" method="post" enctype="multipart/form-data">
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="file" id="Carch" name="archivo" onchange="readtextfile()">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div id="resultados" class="container hidden">
+                <div id="resetear">
+                    <button onclick="save()" id="Descargar">
+                        <img src="https://static.thenounproject.com/png/5006210-200.png" alt="Descargar" width="40"
+                            height="40">
+                    </button>
+                    <button id="accion" onclick="reset()" class="rotate-180">
+                        <img src="img/goma.svg" alt="calcular" width="40" height="40">
+                    </button>
+                </div>
+                <div class="rotate-180">
+
+                    <h2>GausJordan</h2>
+                    <textarea id="rawmatriz" class="hidden" placeholder="Matríz"></textarea>
+                    <div id="resultado" class="matriz hidden matriz">
+                    </div>
+                    <br>
+                    <h2>Determinantes</h2>
+                    <div id="determinantes" class="matriz hidden   matriz">
+
+                    </div>
+                    <br>
+                    <h2>Inversa</h2>
+                    <div id="inv" class="matriz hidden matriz">
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!-- pie de página -->
+        <footer>
+            <p>© 2023 Gauss Jordaner</p>
+        </footer>
+    </div>
+</body>
+
+</html>
