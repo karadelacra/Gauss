@@ -3,6 +3,7 @@
 body {
     display: flex;
     color: rgb(0, 0, 0);
+    background-color: rgb(40, 39, 39);
     background-image: url('https://images.pexels.com/photos/12920871/pexels-photo-12920871.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
     /* ajustar la imagen a la pestaña */
     background-repeat: no-repeat;
@@ -37,8 +38,6 @@ input[type=submit] {
 button {
     /* bordes redondos */
     border-radius: 8px;
-    border: 2px solid #000000;
-    background-color: rgba(57, 0, 0, 0.629);
     color: rgb(255, 255, 255);
     margin-top: 5px;
     cursor: pointer;
@@ -73,7 +72,7 @@ button:hover {
     background-color: rgba(225, 225, 225, 0.499);
     color: rgb(45, 24, 24);
     padding: 20px;
-    margin: 10px;
+    margin: auto;
     border: 2px solid #979a78;
 }
 
@@ -96,6 +95,7 @@ button:hover {
 
 #accion{
     background-color: rgba(255, 255, 255, 0);
+    color: rgb(0, 0, 0);
     border: none;
 }
 
@@ -106,6 +106,24 @@ button:hover {
     margin-top: 5px;
     width: auto;
     height: auto;
+}
+
+#resetear{
+    background-color: rgba(255, 255, 255, 0.571);
+    border-radius: 4px;
+    margin-top: 5px;
+    width: auto;
+    height: auto;
+
+}
+#Descargar{
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 4px;
+    margin-top: 5px;
+    width: auto;
+    height: auto;
+    border: 0px;
+
 }
 
 .modificar{
@@ -123,8 +141,7 @@ button:hover {
 .container {
     border-radius: 5px;
     background-color: #000000;
-    padding: 2px;
-    /*  */
+    height: auto;
 }
 
 /* centrar elementos */

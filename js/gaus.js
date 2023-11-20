@@ -1,37 +1,6 @@
 // Manejo de matrices con fracciones
 // Para realizar eliminación gaussiana
 
-
-function scanmatrix(string)
-{
-//     let matrix = [[]];
-//     let rows = string.split("\n");
-//     for (let i = 0; i < rows.length; i++)
-//     {
-//         let stringrow = rows[i].trim();
-//         if (stringrow == "\n" || stringrow == "")
-//         {
-//             continue;
-//         }
-//         let fractions = stringrow.split(/\s+/);
-//         let row = [];
-//         for (let j = 0; j < fractions.length; j++)
-//         {
-//             // the fraction may be written as a fraction or a whole number
-//             // if its a whole number set the denominator to 1
-//             let fraction = fractions[j].split("/");
-//             if (fraction.length == 1)
-//             {
-//                 fraction.push(1);
-//             }
-//             row.push(math.fraction(fraction[0], fraction[1]));
-//             //matrix[i][j] = math.fraction(fractions[j]);
-//         }
-//         matrix[i] = row;
-//     }
-//     return matrix;
-}
-
 function toEc(matrix)
 {
     //se obtiene el numero de filas y columnas
@@ -62,7 +31,6 @@ function toEc(matrix)
     //se devuelve la tabla
     return table;
 }
-
 
 function toString(matrix)
 {
