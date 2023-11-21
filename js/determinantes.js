@@ -74,4 +74,6 @@ function gauss_det() {
     const isInteger = math.isInteger(det_det);
     const detString = isInteger ? det_det.toString() : math.format(det_det, { fraction: 'ratio' });
     resultado_det.innerText = detString;
+    const textarea = document.getElementById("rawmatriz2");
+    textarea.value = detString;
 }

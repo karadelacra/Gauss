@@ -2,18 +2,38 @@
 
 function save() {
   const content = document.getElementById('rawmatriz').value;
-  if (content === '') {
+  const content2 = document.getElementById("rawmatriz2").value;
+  const content3 = document.getElementById("rawmatriz3").value;
+
+  console.log(content);
+  console.log(content2);
+  console.log(content3);
+  
+  if (content == '' || content2 == '' || content3 == '') {
+    alert('hay un campo vacio');
     return;
   }
+
+  
 
   const matrix = scanmatrix(content)
   let n = matrix.length;
   let m = matrix[0].length;
 
-  const blob = new Blob([content], { type: 'text/plain' });
+  // juntar los 3 textos
+  let texto = 'gaus Jordan\n' + content + '\n\ndeterminante\n' + content2 + '\n\n\n inversa \n' + content3;
+  // Crear un blob con el contenido del archivo
+  const blob = new Blob([texto], { type: 'text/plain' });
+  // Crear un enlace invisible
   const link = document.createElement('a');
   link.href = URL.createObjectURL(blob);
   link.download = `gauss${n}x${m}.txt`;
+
+
+  // const blob = new Blob([content], { type: 'text/plain' }); // Crear un blob con el contenido del archivo
+  // const link = document.createElement('a');
+  // link.href = URL.createObjectURL(blob);
+  // link.download = `gauss${n}x${m}.txt`;
 
   // Simular un clic en el enlace para iniciar la descarga
   link.click();
@@ -24,6 +44,20 @@ function save() {
     link.remove();
   }, 100);
 }
+
+// identificar la extensión del archivo
+function identify() {
+  const fileInput = document.getElementById('Carch');
+  const file = fileInput.files[0];
+  const extension = file.name.split('.').pop();
+  console.log(extension);
+  if (extension == 'txt') {
+    readtextfile();
+  } else {
+    mostrarImagenYDatos();
+  }
+}
+
 
 function readtextfile() {
   const fileInput = document.getElementById("Carch").files[0];

@@ -1,5 +1,4 @@
 // Max Miguel 
-// hola comentario prueba
 
 const GaussModule = (function () {
     function isSquareMatrix(matrix) {
@@ -83,7 +82,7 @@ const GaussModule = (function () {
 })();
 
 function gauss_Inversa() {
-    // const textbox = document.getElementById("gauss");
+    
 
     const inversaElement = document.getElementById("inv");
 
@@ -95,7 +94,12 @@ function gauss_Inversa() {
         inversaElement.innerHTML = errorMessage;
         return;
     }
-
+    if (determinant_by_definition(matrix) === 0) {
+        const errorMessage1 = "La matriz no tiene inversa.";
+        console.error(errorMessage1);
+        inversaElement.innerHTML = errorMessage1;
+        return;
+    }
     const invertedMatrix = GaussModule.gauss_jordan_inverse(matrix);
 
     if (invertedMatrix === null) {
@@ -106,8 +110,11 @@ function gauss_Inversa() {
     }
 
     inversaElement.innerHTML = matrixToHTMLTable(invertedMatrix);
+    const textarea = document.getElementById("rawmatriz3");
+    textarea.value = toString(invertedMatrix);
 }
 function matrixToHTMLTable(matrix) {
+
     const table = document.createElement("table");
     matrix.forEach(row => {
         const tr = document.createElement("tr");
