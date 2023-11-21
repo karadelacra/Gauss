@@ -165,4 +165,4 @@ function gauss(matrix) {
     
     // Utiliza la función toEc en lugar de matrixToHTMLTable
     tabla.innerHTML = toEc(resultado);
-}
+}   
