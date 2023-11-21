@@ -103,9 +103,9 @@ function gauss_Inversa() {
     const invertedMatrix = GaussModule.gauss_jordan_inverse(matrix);
 
     if (invertedMatrix === null) {
-        const errorMessage2 = "No se puede calcular la inversa de la matriz.";
+        const errorMessage2 = "La matriz ingresada es singular, lo que implica que no tiene una inversa.";
         console.error(errorMessage2);
-        inversaElement.innerHTML = " No se puede calcular la inversa de la matriz.";
+        inversaElement.innerHTML = "La matriz ingresada es singular, lo que implica que no tiene una inversa.";
         return;
     }
 
