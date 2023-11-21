@@ -1,5 +1,4 @@
 // Max Miguel 
-// hola comentario prueba
 
 const GaussModule = (function () {
     function isSquareMatrix(matrix) {
@@ -106,9 +105,12 @@ function gauss_Inversa() {
     }
 
     inversaElement.innerHTML = matrixToHTMLTable(invertedMatrix);
+    const textarea = document.getElementById("rawmatriz3");
+    textarea.value = toString(invertedMatrix);
 }
 
 function matrixToHTMLTable(matrix) {
+
     const table = document.createElement("table");
     matrix.forEach(row => {
         const tr = document.createElement("tr");
