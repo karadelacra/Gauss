@@ -36,50 +36,38 @@ function borrarColumna() {
 // la siguiente función es para meter los elementos de la matriz en un array
 
 // display.js
-function parseMatrix(content) {
-    const rows = content.trim().split("\n");
-    return rows.map((row) =>
-      row
-        .trim()
-        .split(/\s+/)
-        .map((value) => math.fraction(value))
-    );
-  }
 
-function insertTextIntoTable(content) {
-    const matrix = scanmatrix(content);
-    if (!matrix) {
-      console.error("El formato del archivo no es válido.");
-      return;
-    }
-  
-    const table = document.getElementById("miTabla");
-    clearTable(table);
-  
-    matrix.forEach((row) => {
-      const newRow = table.insertRow();
-      row.forEach((cell) => {
-        const newCell = newRow.insertCell();
-        const input = document.createElement("input");
-        input.className = "matrix-input";
-        input.value = math.format(cell, { fraction: 'ratio' }); // Mostrar la fracción correctamente
-        newCell.appendChild(input);
-      });
-    });
-  }
+function scannmatrix(id) {
+    var table = document.getElementById(id);
+    var matrix = [];
 
-  function scanmatrix(content) {
-    const rows = content.trim().split("\n");
-    return rows.map((row) =>
-      row
-        .trim()
-        .split(/\s+/)
-        .map((value) => math.fraction(value))
-    );
-  }
-  
-  function clearTable(table) {
-    while (table.rows.length > 0) {
-      table.deleteRow(0);
+    if (!table) {
+        console.error("Error: No se encontró la tabla con el ID:", id);
+        return matrix;
     }
-  }
+
+    for (var i = 0; i < table.rows.length; i++) {
+        let row = [];
+
+        for (var j = 0; j < table.rows[i].cells.length; j++) {
+            let inputElement = table.rows[i].cells[j].children[0];
+            let inputValue = inputElement.value.trim();
+
+            console.log("Valor obtenido:", inputValue);
+
+            // Verificar si el valor es una fracción
+            try {
+                let fraction = math.fraction(inputValue);
+                row.push(fraction);
+            } catch (error) {
+                alert("Error al convertir el número en fracción");
+                return matrix;
+            }
+        }
+
+        matrix.push(row);
+    }
+
+    console.log("Matriz obtenida:", matrix);
+    return matrix;
+}
