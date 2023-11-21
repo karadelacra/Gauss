@@ -21,24 +21,5 @@ document.addEventListener("keypress", function (event) {
     }
 });
 }
-function reiniciarTabla() {
-    // Obtén la referencia a la tabla
-    var table = document.getElementById("miTabla");
 
-    // Elimina todas las filas actuales de la tabla
-    while (table.rows.length > 0) {
-        table.deleteRow(0);
-    }
-
-    // Crea una nueva tabla de 3x3
-    for (var i = 0; i < 3; i++) {
-        var newRow = table.insertRow();
-        for (var j = 0; j < 3; j++) {
-            var newCell = newRow.insertCell();
-            var input = document.createElement("input");
-            input.className = "matrix-input";
-            newCell.appendChild(input);
-        }
-    }
-}
 
