@@ -87,7 +87,7 @@ function gauss_Inversa() {
 
     const inversaElement = document.getElementById("inv");
 
-    const matrix = scannmatrix('miTabla');
+    const matrix = scannmatrix('miTabla');  // <-- Cambiado de 'scannmatrix' a 'scanmatrix'
 
     if (!GaussModule.isSquareMatrix(matrix)) {
         const errorMessage = "Solo se puede calcular la inversa de una matriz cuadrada.";
@@ -107,22 +107,54 @@ function gauss_Inversa() {
 
     inversaElement.innerHTML = matrixToHTMLTable(invertedMatrix);
 }
-
 function matrixToHTMLTable(matrix) {
     const table = document.createElement("table");
     matrix.forEach(row => {
         const tr = document.createElement("tr");
         row.forEach(val => {
             const td = document.createElement("td");
-            td.textContent = val % 1 === 0 ? val.toString() : math.format(val, { fraction: 'ratio' });
+            td.textContent = math.format(val, { fraction: 'ratio' });  // <-- Cambiado de 'val.toString()' a 'math.format(val, { fraction: 'ratio' })'
             tr.appendChild(td);
         });
         table.appendChild(tr);
     });
     return table.outerHTML;
 }
+function scannmatrix(id) {
+    var table = document.getElementById(id);
+    var matrix = [];
 
-function scanmatrix(matrixStr) {
-    const rows = matrixStr.trim().split('\n');
-    return rows.map(row => row.split(/\s+/).map(val => math.fraction(Number(val))));
+    if (!table) {
+        console.error("Error: No se encontró la tabla con el ID:", id);
+        return matrix;
+    }
+
+    for (var i = 0; i < table.rows.length; i++) {
+        let row = [];
+
+        for (var j = 0; j < table.rows[i].cells.length; j++) {
+            let input = table.rows[i].cells[j].children[0].value;
+
+            // Verificar si el valor es un número
+            if (input === "" || isNaN(input)) {
+                alert("La matriz no puede tener letras o espacios vacíos");
+                return matrix;
+            }
+
+            // Intentar convertir el valor en una fracción
+            try {
+                let fraction = math.fraction(input);
+                row.push(fraction);
+            } catch (error) {
+                alert("Error al convertir el número en fracción");
+                return matrix;
+            }
+        }
+
+        matrix.push(row);
+    }
+
+    console.log("Matriz obtenida:", matrix);
+    return matrix;
 }
+

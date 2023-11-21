@@ -34,35 +34,52 @@ function borrarColumna() {
 }
 
 // la siguiente función es para meter los elementos de la matriz en un array
-function scannmatrix(id) {
-    var table = document.getElementById(id);
-    var matrix = [];
-    for (var i = 0; i < table.rows.length; i++) {
-        let row = [];
-        // si la matriz tiene letras o espacios vacíos regresa un al usuario
-        // que no se puede hacer la operación
-        for (var j = 0; j < table.rows[i].cells.length; j++) {
-            let n = table.rows[i].cells[j].children[0].value
-            if (n == "" || isNaN(n)) {
-                alert("La matriz no puede tener letras o espacios vacíos");
-                return;
-            }
-        }
 
-        for (var j = 0; j < table.rows[i].cells.length; j++) {
-            let n = table.rows[i].cells[j].children[0].value
-            // the fraction may be written as a fraction or a whole number
-            // if its a whole number set the denominator to 1
-            let fraction = n.split("/");
-            if (fraction.length == 1) {
-                fraction.push(1);
-            }
-            row.push(math.fraction(fraction[0], fraction[1]));
-            // matrix[i][j] = math.fraction(fraction[j]);
+// display.js
+function parseMatrix(content) {
+    const rows = content.trim().split("\n");
+    return rows.map((row) =>
+      row
+        .trim()
+        .split(/\s+/)
+        .map((value) => math.fraction(value))
+    );
+  }
 
-        }
-        matrix[i] = row;
+function insertTextIntoTable(content) {
+    const matrix = scanmatrix(content);
+    if (!matrix) {
+      console.error("El formato del archivo no es válido.");
+      return;
     }
-    console.log(matrix);
-    return matrix;
-}
+  
+    const table = document.getElementById("miTabla");
+    clearTable(table);
+  
+    matrix.forEach((row) => {
+      const newRow = table.insertRow();
+      row.forEach((cell) => {
+        const newCell = newRow.insertCell();
+        const input = document.createElement("input");
+        input.className = "matrix-input";
+        input.value = math.format(cell, { fraction: 'ratio' }); // Mostrar la fracción correctamente
+        newCell.appendChild(input);
+      });
+    });
+  }
+
+  function scanmatrix(content) {
+    const rows = content.trim().split("\n");
+    return rows.map((row) =>
+      row
+        .trim()
+        .split(/\s+/)
+        .map((value) => math.fraction(value))
+    );
+  }
+  
+  function clearTable(table) {
+    while (table.rows.length > 0) {
+      table.deleteRow(0);
+    }
+  }
