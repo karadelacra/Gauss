@@ -45,6 +45,20 @@ function save() {
   }, 100);
 }
 
+// identificar la extensión del archivo
+function identify() {
+  const fileInput = document.getElementById('Carch');
+  const file = fileInput.files[0];
+  const extension = file.name.split('.').pop();
+  console.log(extension);
+  if (extension == 'txt') {
+    readtextfile();
+  } else {
+    mostrarImagenYDatos();
+  }
+}
+
+
 function readtextfile() {
   const fileInput = document.getElementById("Carch").files[0];
   const reader = new FileReader();

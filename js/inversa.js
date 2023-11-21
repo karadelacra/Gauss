@@ -82,7 +82,7 @@ const GaussModule = (function () {
 })();
 
 function gauss_Inversa() {
-    // const textbox = document.getElementById("gauss");
+    
 
     const inversaElement = document.getElementById("inv");
 
@@ -94,7 +94,12 @@ function gauss_Inversa() {
         inversaElement.innerHTML = errorMessage;
         return;
     }
-
+    if (determinant_by_definition(matrix) === 0) {
+        const errorMessage1 = "La matriz no tiene inversa.";
+        console.error(errorMessage1);
+        inversaElement.innerHTML = errorMessage1;
+        return;
+    }
     const invertedMatrix = GaussModule.gauss_jordan_inverse(matrix);
 
     if (invertedMatrix === null) {
