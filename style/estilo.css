@@ -234,9 +234,21 @@ table {
 }
 
 .miTabla {
-    width: auto;
-    position: center;
+    width: 100%;
+    margin-top: 10px;
 }
+
+.miTabla table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.miTabla td {
+    border: 2px solid #000000;
+    padding: 8px;
+    text-align: center;
+}
+
 .tabla-inversa table {
     width: 100%;
     border-collapse: collapse;

@@ -162,7 +162,10 @@ function gauss(matrix) {
     let tabla = document.getElementById("resultado");
 
     console.log("Resultado antes de matrixToHTMLTable:", resultado);
-    
+
     // Utiliza la función toEc en lugar de matrixToHTMLTable
     tabla.innerHTML = toEc(resultado);
-}   
+
+    // Añade la siguiente clase para dar estilo a la tabla
+    tabla.classList.add("miTabla");
+}
