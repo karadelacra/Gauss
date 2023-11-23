@@ -82,6 +82,7 @@ function readtextfile() {
   }
 }
 
+
 function insertTextIntoTable(content) {
   const matrix = parseMatrix(content);
   if (!matrix) {
@@ -98,15 +99,25 @@ function insertTextIntoTable(content) {
       const newCell = newRow.insertCell();
       const input = document.createElement("input");
       input.className = "matrix-input";
-      input.value = cell;
+
+      // Verificar si el valor es un entero o un número con decimales
+      const isInteger = math.isInteger(cell);
+      input.value = isInteger ? cell : math.format(cell, { fraction: 'ratio' });
+
       newCell.appendChild(input);
     });
   });
 }
 
+
 function parseMatrix(content) {
   const rows = content.trim().split("\n");
-  return rows.map((row) => row.trim().split(/\s+/).map(Number));
+  return rows.map((row) =>
+    row
+      .trim()
+      .split(/\s+/)
+      .map((value) => math.fraction(value))
+  );
 }
 
 function clearTable(table) {

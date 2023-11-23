@@ -107,44 +107,49 @@ function swap_rows(matrix, row1, row2)
     matrix[row2] = temp;
 }
 
-function gauss_jordaner(matrix)
-{
+function gauss_jordaner(matrix) {
+    console.log("Matriz recibida:", matrix);
+
     let n = matrix.length;
     let m = matrix[0].length;
     let row = 0;
     let col = 0;
-    while (row < n && col < m)
-    {
+    
+    while (row < n && col < m) {
         // find the pivot
         let pivot = matrix[row][col];
-        if (math.equal(pivot, 0))
-        {
-            // find a non zero pivot
+        
+        if (math.equal(pivot, 0)) {
+            // find a non-zero pivot
             let found = false;
-            for (let i = row + 1; i < n; i++)
-            {
-                if (!math.equal(matrix[i][col], 0))
-                {
+            
+            for (let i = row + 1; i < n; i++) {
+                if (!math.equal(matrix[i][col], 0)) {
                     swap_rows(matrix, row, i);
                     found = true;
                     break;
                 }
             }
-            if (!found)
-            {
+            
+            if (!found) {
                 col++;
                 continue;
             }
         }
+        
         // make the pivot one
         make_it_one(matrix, row, col);
+        
         // cancel the elements under the pivot
         make_it_zero_under(matrix, row, col);
+        
         // cancel the elements above the pivot
         make_it_zero_above(matrix, row, col);
+        
         row++;
         col++;
     }
+    
     return matrix;
 }
 
@@ -156,5 +161,11 @@ function gauss(matrix) {
 
     let tabla = document.getElementById("resultado");
 
-    tabla.innerHTML = matrixToHTMLTable(resultado);
+    console.log("Resultado antes de matrixToHTMLTable:", resultado);
+
+    // Utiliza la función toEc en lugar de matrixToHTMLTable
+    tabla.innerHTML = toEc(resultado);
+
+    // Añade la siguiente clase para dar estilo a la tabla
+    tabla.classList.add("miTabla");
 }
