@@ -62,8 +62,10 @@ button:hover {
 
 #resultados {
     background-color: rgba(81, 62, 62, 0.602);
-    padding: 20px;
-    margin: 10px;
+    width: auto;
+    height: auto;
+    padding: auto;
+    margin: auto;
     border: 2px solid rgb(111, 109, 106);
     transform: rotate(180deg);
 }
@@ -71,6 +73,8 @@ button:hover {
 #Calculadora {
     background-color: rgba(225, 225, 225, 0.499);
     color: rgb(45, 24, 24);
+    width: auto;
+    height: auto;
     padding: 20px;
     margin: auto;
     border: 2px solid #979a78;
