@@ -1,6 +1,6 @@
 // Manejo de archivos
 
-const { re } = require("mathjs");
+// const { re } = require("mathjs");
 
 function save() {
   const content = document.getElementById('rawmatriz').value;
@@ -10,48 +10,64 @@ function save() {
   console.log(content);
   console.log(content2);
   console.log(content3);
-  
-  if (content == '' || content2 == '') {
-    alert('hay un campo vacio');
-    return;
-  }
-  if (content3 == '') {
+
+  // si en content1 no hay una matriz cuadrada no se guarda el determinante ni la inversa
+  if (!isSquareMatrix(content)) {
     const matrix = scanmatrix(content)
-  let n = matrix.length;
-  let m = matrix[0].length;
-  // Crear un blob con el contenido del archivo
+    let n = matrix.length;
+    let m = matrix[0].length;
+    // Crear un blob con el contenido del archivo
+    let texto = 'gaus Jordan\n' + content + '\n\ndeterminante\n' + 'La matriz no es cuadrada' + '\n\n\n inversa \n' + 'La matriz no es cuadrada';
+    let blob = new Blob([texto], { type: 'text/plain' });
+    // Crear un objeto URL del blob
+    let blobUrl = URL.createObjectURL(blob);
+    // Crear un tag <a>
+    let anchor = document.createElement('a');
+    // Setear el nombre del archivo
+    anchor.download = 'gausJordan.txt';
+    // Setear la URL
+    anchor.href = blobUrl;
+    // Hacer click en el link
+    anchor.click();
+  }else
+  // si en content2 es 0 no se guarda la inversa
+  if (content2 == 0) {
+    const matrix = scanmatrix(content)
+    let n = matrix.length;
+    let m = matrix[0].length;
+    // Crear un blob con el contenido del archivo
     let texto = 'gaus Jordan\n' + content + '\n\ndeterminante\n' + content2 + '\n\n\n inversa \n' + 'La matriz no tiene inversa.';
-    const blob = new Blob([texto], { type: 'text/plain' });
-  // Crear un enlace invisible
-  const link = document.createElement('a');
-  link.href = URL.createObjectURL(blob);
-  link.download = `gauss${n}x${m}.txt`;
-  link.click();
-  // Limpiar después de un breve tiempo
-  setTimeout(() => {
-    URL.revokeObjectURL(link.href);
-    link.remove();
-  }, 100);
+    let blob = new Blob([texto], { type: 'text/plain' });
+    // Crear un objeto URL del blob
+    let blobUrl = URL.createObjectURL(blob);
+    // Crear un tag <a>
+    let anchor = document.createElement('a');
+    // Setear el nombre del archivo
+    anchor.download = 'gausJordan.txt';
+    // Setear la URL
+    anchor.href = blobUrl;
+    // Hacer click en el link
+    anchor.click();
+
   }else{
     const matrix = scanmatrix(content)
-  let n = matrix.length;
-  let m = matrix[0].length;
-  // Crear un blob con el contenido del archivo
+    let n = matrix.length;
+    let m = matrix[0].length;
+    // Crear un blob con el contenido del archivo
     let texto = 'gaus Jordan\n' + content + '\n\ndeterminante\n' + content2 + '\n\n\n inversa \n' + content3;
-    const blob = new Blob([texto], { type: 'text/plain' });
-  // Crear un enlace invisible
-  const link = document.createElement('a');
-  link.href = URL.createObjectURL(blob);
-  link.download = `gauss${n}x${m}.txt`;
-  link.click();
-  // Limpiar después de un breve tiempo
-  setTimeout(() => {
-    URL.revokeObjectURL(link.href);
-    link.remove();
-  }, 100);
+    let blob = new Blob([texto], { type: 'text/plain' });
+    // Crear un objeto URL del blob
+    let blobUrl = URL.createObjectURL(blob);
+    // Crear un tag <a>
+    let anchor = document.createElement('a');
+    // Setear el nombre del archivo
+    anchor.download = 'gausJordan.txt';
+    // Setear la URL
+    anchor.href = blobUrl;
+    // Hacer click en el link
+    anchor.click();
   }
 }
-
 // identificar la extensión del archivo
 function identify() {
   const fileInput = document.getElementById('Carch');
@@ -164,4 +180,13 @@ function mostrarImagenYDatos() {
   } else {
     imagenContainer.style.display = 'none';
   }
+}
+
+function scanmatrix (content){
+  const matrix = parseMatrix(content);
+  if (!matrix) {
+    console.error("El formato del archivo no es válido.");
+    return;
+  }
+  return matrix;
 }
