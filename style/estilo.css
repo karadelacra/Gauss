@@ -125,6 +125,7 @@ button:hover {
     border: 0px;
 }
 
+/*Agrega responsividad al resultado de Gauss Jordan*/
 #resultado{
 width: auto;
 }
