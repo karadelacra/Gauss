@@ -110,7 +110,14 @@ function gauss_Inversa() {
         inversaElement.innerHTML = "La matriz ingresada es singular, lo que implica que no tiene una inversa.";
         return;
     }
-
+    // si las fracciones se pueden simplificar, se simplifican
+    for (let i = 0; i < invertedMatrix.length; i++) {
+        for (let j = 0; j < invertedMatrix[0].length; j++) {
+            if (invertedMatrix[i][j].s % invertedMatrix[i][j].d === 0) {
+                invertedMatrix[i][j] = invertedMatrix[i][j].s / invertedMatrix[i][j].d;
+            }
+        }
+    }
     inversaElement.innerHTML = matrixToHTMLTable(invertedMatrix);
     const textarea = document.getElementById("rawmatriz3");
     textarea.value = toString(invertedMatrix);
