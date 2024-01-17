@@ -45,16 +45,13 @@
     <!-- se ejecuta una función por default -->
     <script>
         window.onload = function() {
-            enter();
+            checkEvents();
         };
     </script>
-
-
-
 </head>
 
 <body>
-    
+
     <div id="Calculadora" class="container center">
         <!-- en este div se contendrá los botones y el display -->
         <div id="display">
@@ -94,19 +91,19 @@
                             <td>
                                 <table id="miTabla" border="1">
                                     <tr>
-                                        <td><input class="matrix-input" /></td>
-                                        <td><input class="matrix-input" /></td>
-                                        <td><input class="matrix-input" /></td>
+                                        <td><input id="cell-0-0" class="matrix-input" /></td>
+                                        <td><input id="cell-1-0" class="matrix-input" /></td>
+                                        <td><input id="cell-2-0" class="matrix-input" /></td>
                                     </tr>
                                     <tr>
-                                        <td><input class="matrix-input" /></td>
-                                        <td><input class="matrix-input" /></td>
-                                        <td><input class="matrix-input" /></td>
+                                        <td><input id="cell-0-1" class="matrix-input" /></td>
+                                        <td><input id="cell-1-1" class="matrix-input" /></td>
+                                        <td><input id="cell-2-1" class="matrix-input" /></td>
                                     </tr>
                                     <tr>
-                                        <td><input class="matrix-input" /></td>
-                                        <td><input class="matrix-input" /></td>
-                                        <td><input class="matrix-input" /></td>
+                                        <td><input id="cell-0-2" class="matrix-input" /></td>
+                                        <td><input id="cell-1-2" class="matrix-input" /></td>
+                                        <td><input id="cell-2-2" class="matrix-input" /></td>
                                     </tr>
                                 </table>
                             </td>
@@ -121,7 +118,6 @@
                 <form onsubmit="mostrarImagenYDatos(); return false;" method="post" enctype="multipart/form-data">
                     <table>
                         <tr>
-                            
                             <td>
                                 <input type="file" id="Carch" name="archivo" onchange="identify()">
                             </td>
