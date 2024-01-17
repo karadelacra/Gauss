@@ -2,19 +2,23 @@
 
 function agregarFila() {
     var table = document.getElementById("miTabla");
+    console.log("Fila agregada");
     var newRow = table.insertRow(-1);
     for (var i = 0; i < table.rows[0].cells.length; i++) {
         var cell = newRow.insertCell(i);
-        cell.innerHTML = '<input class="matrix-input" />';
+        cell.innerHTML = `<input id="cell-${i}-${HEIGHT}" class="matrix-input" />`;
     }
+    HEIGHT++;
 }
 
 function agregarColumna() {
+
     var table = document.getElementById("miTabla");
     for (var i = 0; i < table.rows.length; i++) {
         var cell = table.rows[i].insertCell(-1);
-        cell.innerHTML = '<input class="matrix-input" />';
+        cell.innerHTML = `<input id="cell-${WIDTH}-${i}" class="matrix-input" />`;
     }
+    WIDTH++;
 }
 
 function borrarFila() {
@@ -22,6 +26,7 @@ function borrarFila() {
     if (table.rows.length > 1) {
         table.deleteRow(-1);
     }
+    HEIGHT--;
 }
 
 function borrarColumna() {
@@ -31,6 +36,7 @@ function borrarColumna() {
             table.rows[i].deleteCell(-1);
         }
     }
+    WIDTH--;
 }
 
 // la siguiente función es para meter los elementos de la matriz en un array
