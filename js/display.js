@@ -10,7 +10,7 @@ function agregarFila() {
     }
     HEIGHT++;
 }
-
+// hoal
 function agregarColumna() {
 
     var table = document.getElementById("miTabla");
